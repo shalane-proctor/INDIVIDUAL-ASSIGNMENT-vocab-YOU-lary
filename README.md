@@ -89,3 +89,22 @@ Create issue tickets from the items below to help you get started.
 - [ ] If an entry is public, anyone can READ it. If it is private, only the user who created it can see it.
 - [ ] If an entry is public, only the user who created it can CRUD on it
 - [ ] If an entry is public, any user can copy the entry to their own set of entries and then CRUD on the new/copied entry
+
+
+# Vocab-YOU-Lary
+
+## Overview of the project
+
+## Wireframes/prototype 
+- https://www.figma.com/file/IW4jF3GnzCFLYbEXlgFNIZ/MVP?node-id=2%3A6812
+## Deployed project
+- sproctor-vocab-you-lary.netlify.app
+## Project board
+- link
+## Description of the user
+- List of features
+- Screenshots of your project
+## Contributors
+- Shalane Proctor (https://github.com/shalane-proctor)
+## Walkthrough
+Link to Loom video walkthrough(no more than 1 minute long)
