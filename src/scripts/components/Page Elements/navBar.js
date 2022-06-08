@@ -12,6 +12,9 @@ const navBar = () => {
         <li class="nav-item">
           <button class="btn btn-sm btn-outline-secondary" type="button">Create Card!</button>
         </li>
+        <li class="nav-item">
+          <button class="btn btn-sm btn-outline-secondary" type="button">Logout</button>
+        </li>
       </ul>
       <span class="navbar-text">
         Vocab cards for studying JS, CSS, & HTML.
