@@ -10,17 +10,11 @@ const navBar = () => {
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+          <button class="btn btn-sm btn-outline-secondary" type="button">Create Card!</button>
         </li>
       </ul>
       <span class="navbar-text">
-        Navbar text with an inline element.
+        Vocab cards for studying JS, CSS, & HTML.
       </span>
     </div>
   </div>
