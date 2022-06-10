@@ -3,6 +3,7 @@ import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
+// GET
 const getVocabCards = () => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/cards.json`)
     .then((response) => {
@@ -14,4 +15,60 @@ const getVocabCards = () => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export default getVocabCards;
+// DELETE
+const deleteCard = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .delete(`${dbUrl}/cards/${firebaseKey}.json`)
+    .then(() => {
+      getVocabCards().then((cardsArray) => resolve(cardsArray));
+    })
+    .catch((error) => reject(error));
+});
+
+// CREATE
+const createCard = (cardObj) => new Promise((resolve, reject) => {
+  axios
+    .post(`${dbUrl}/cards.json`, cardObj)
+    .then((response) => {
+      const payload = { firebaseKey: response.data.name };
+      axios
+        .patch(`${dbUrl}/cards/${response.data.name}.json`, payload)
+        .then(() => {
+          getVocabCards(cardObj.uid).then(resolve);
+        });
+    })
+    .catch((error) => reject(error));
+});
+
+// UPDATE
+const updateCard = (cardObj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${dbUrl}/cards/${cardObj.firebaseKey}`, cardObj)
+    .then(() => getVocabCards().then(resolve))
+    .catch(reject);
+});
+
+// FILTER saved
+const savedCards = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/cards.json?orderBy="saved"&equalTo=true`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
+// FILTER Language
+// const cardLanguage = () =>
+//   new Promise((resolve, reject) => {
+//     axios
+//       .get(`${dbUrl}/cards.json?orderBy="language"&equalTo=${}`)
+//       .then((response) => resolve(Object.values(response.data)))
+//       .catch((error) => reject(error));
+//   });
+
+export {
+  getVocabCards,
+  createCard,
+  deleteCard,
+  updateCard,
+  savedCards,
+};
