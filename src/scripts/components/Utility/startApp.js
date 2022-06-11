@@ -8,17 +8,14 @@ import domBuilder from '../Page Elements/domBuilder';
 // import mainDom from '../Page Elements/mainPage';
 import navBar from '../Page Elements/navBar';
 
-const startApp = () => {
+const startApp = (user) => {
   domBuilder();
-  domEvents();
-  formEvents();
+  domEvents(user.uid);
+  formEvents(user.uid);
   navBar();
-  navigationEvents();
+  navigationEvents(user.uid);
   logoutButton();
-  // mainDom();
-  getVocabCards().then((vocabArray) => cardsOnDom(vocabArray));
+  getVocabCards(user.uid).then((vocabArray) => cardsOnDom(vocabArray));
 };
-
-startApp();
 
 export default startApp;
