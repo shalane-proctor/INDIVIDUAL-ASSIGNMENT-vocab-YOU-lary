@@ -1,3 +1,4 @@
+import clearDom from '../Utility/clearDom';
 import renderToDom from '../Utility/renderToDom';
 
 const noCards = () => {
@@ -5,6 +6,7 @@ const noCards = () => {
 };
 
 const cardsOnDom = (array) => {
+  clearDom();
   if (array.length) {
     const btnString = `<div id="buttonContainer">
   <button id=" type="button" class="btn btn-dark">HTML</button>
@@ -22,9 +24,10 @@ const cardsOnDom = (array) => {
         <h5 class="card-title">${item.title}</h5>
         <p class="card-text">${item.description}</p>
         <p class="card-text">${item.language}</p>
-        <button type="button" class="btn btn-secondary">Edit</button>
-        <button type="button" class="btn btn-secondary">Save</button>
-        <button type="button" class="btn btn-secondary">Delete.</button>
+        <button id="edit-card-btn--${item.firebaseKey}" type="button" class="btn btn-secondary">Edit</button>
+        <button id="card-bookmark-btn--${item.firebaseKey}" type="button" class="btn btn-secondary">Save</button>
+        <button id="delete-book-btn--${item.firebaseKey}" type="button" class="btn btn-secondary">Delete</button>
+        <p class="card-text"><small class="text-muted">Last updated ${item.time}</small></p>
       </div>
     </div>`;
     });

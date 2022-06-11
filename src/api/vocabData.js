@@ -15,6 +15,14 @@ const getVocabCards = () => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+// GET single
+const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/cards/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
 // DELETE
 const deleteCard = (firebaseKey) => new Promise((resolve, reject) => {
   axios
@@ -67,6 +75,7 @@ const savedCards = () => new Promise((resolve, reject) => {
 
 export {
   getVocabCards,
+  getSingleCard,
   createCard,
   deleteCard,
   updateCard,
