@@ -9,6 +9,7 @@ const checkLoginStatus = () => {
   firebase.initializeApp(firebaseConfig);
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      document.querySelector('#login-form-container').innerHTML = '';
       // person is logged in do something...
       startApp();
     } else {

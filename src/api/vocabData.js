@@ -51,8 +51,8 @@ const createCard = (cardObj) => new Promise((resolve, reject) => {
 // UPDATE
 const updateCard = (cardObj) => new Promise((resolve, reject) => {
   axios
-    .patch(`${dbUrl}/cards/${cardObj.firebaseKey}`, cardObj)
-    .then(() => getVocabCards().then(resolve))
+    .patch(`${dbUrl}/cards/${cardObj.firebaseKey}.json`, cardObj)
+    .then(() => getVocabCards(cardObj).then(resolve))
     .catch(reject);
 });
 
@@ -65,13 +65,12 @@ const savedCards = () => new Promise((resolve, reject) => {
 });
 
 // FILTER Language
-// const cardLanguage = () =>
-//   new Promise((resolve, reject) => {
-//     axios
-//       .get(`${dbUrl}/cards.json?orderBy="language"&equalTo=${}`)
-//       .then((response) => resolve(Object.values(response.data)))
-//       .catch((error) => reject(error));
-//   });
+const cardLanguage = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/cards.json?orderBy="language"&equalTo=${'language'}`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 
 export {
   getVocabCards,
@@ -80,4 +79,5 @@ export {
   deleteCard,
   updateCard,
   savedCards,
+  cardLanguage
 };

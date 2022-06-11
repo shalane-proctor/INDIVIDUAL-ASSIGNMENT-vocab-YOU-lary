@@ -1,4 +1,5 @@
-import { createCard, deleteCard, getSingleCard } from '../../../api/vocabData';
+import { deleteCard, getSingleCard } from '../../../api/vocabData';
+import addCardForm from '../Form/createCard';
 import cardsOnDom from '../Page Elements/cardsOnDom';
 
 const domEvents = () => {
@@ -13,7 +14,7 @@ const domEvents = () => {
 
     if (e.target.id.includes('edit-card-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleCard(firebaseKey).then((cardObj) => createCard(cardObj));
+      getSingleCard(firebaseKey).then((cardObj) => addCardForm(cardObj));
     }
   });
 };

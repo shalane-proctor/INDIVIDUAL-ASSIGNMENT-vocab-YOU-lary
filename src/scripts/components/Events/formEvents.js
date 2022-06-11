@@ -1,7 +1,7 @@
 import { createCard, updateCard } from '../../../api/vocabData';
 import cardsOnDom from '../Page Elements/cardsOnDom';
 
-const newDate = new Date().toLocaleDateString();
+const currentDateTime = new Date().toLocaleString();
 
 const formEvents = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -12,7 +12,7 @@ const formEvents = () => {
         description: document.querySelector('#description').value,
         saved: document.querySelector('#saved').checked,
         language: document.querySelector('#language').value,
-        time: newDate
+        time: currentDateTime
       };
       createCard(cardObject).then((cardArray) => cardsOnDom(cardArray));
     }
@@ -24,7 +24,8 @@ const formEvents = () => {
         description: document.querySelector('#description').value,
         saved: document.querySelector('#saved').checked,
         language: document.querySelector('#language').value,
-        firebaseKey,
+        time: currentDateTime,
+        firebaseKey
       };
       updateCard(cardObject).then(cardsOnDom);
     }

@@ -5,6 +5,7 @@ import renderToDom from './Utility/renderToDom';
 
 const signMeOut = () => {
   clearDom();
+  document.querySelector('#navigation').innerHTML = '';
   firebase.auth().signOut();
 };
 

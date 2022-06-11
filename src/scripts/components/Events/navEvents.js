@@ -1,13 +1,14 @@
 import addCardForm from '../Form/createCard';
-// import signOut from '../../helpers/signOut';
+// import clearDom from '../Utility/clearDom';
 
 const navigationEvents = () => {
   document.querySelector('#navigation').addEventListener('click', (e) => {
     if (e.target.id.includes('add-card-btn')) {
       addCardForm();
     }
-    // document.querySelector('#logout-button')
-    //   .addEventListener('click', signOut);
+    // if (e.target.id.includes('navBarLogo')) {
+    //   clearDom();
+    // }
   });
 };
 
