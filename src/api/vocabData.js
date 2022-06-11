@@ -4,15 +4,17 @@ import firebaseConfig from './apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 // GET
-const getVocabCards = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/cards.json`)
+const getVocabCards = (uid) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/cards.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
       } else {
         resolve([]);
       }
-    }).catch((error) => reject(error));
+    })
+    .catch((error) => reject(error));
 });
 
 // GET single

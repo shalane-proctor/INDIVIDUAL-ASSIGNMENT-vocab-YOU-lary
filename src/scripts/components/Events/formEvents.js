@@ -3,7 +3,7 @@ import cardsOnDom from '../Page Elements/cardsOnDom';
 
 const currentDateTime = new Date().toLocaleString();
 
-const formEvents = () => {
+const formEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
     if (e.target.id.includes('submit-card')) {
@@ -12,7 +12,8 @@ const formEvents = () => {
         description: document.querySelector('#description').value,
         saved: document.querySelector('#saved').checked,
         language: document.querySelector('#language').value,
-        time: currentDateTime
+        time: currentDateTime,
+        uid
       };
       createCard(cardObject).then((cardArray) => cardsOnDom(cardArray));
     }
