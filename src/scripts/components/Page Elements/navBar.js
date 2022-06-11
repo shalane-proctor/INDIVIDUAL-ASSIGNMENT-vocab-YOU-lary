@@ -13,7 +13,7 @@ const navBar = () => {
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <button class="btn btn-sm btn-outline-secondary" type="button">Create Card!</button>
+          <button id="add-card-btn" class="btn btn-sm btn-outline-secondary" type="button">Create Card!</button>
         </li>
         <li id="logout-button" class="nav-item">
         </li>
