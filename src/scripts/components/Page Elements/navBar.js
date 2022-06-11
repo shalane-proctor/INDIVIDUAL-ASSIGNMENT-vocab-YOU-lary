@@ -4,8 +4,8 @@ import VocabYouLarry from '../../../images/VocabYouLarry1.png';
 const navBar = () => {
   const domString = `<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src=${VocabYouLarry} alt="" width="30" height="24">
+    <a  class="navbar-brand" href="#">
+      <img id="navBarLogo" src=${VocabYouLarry} alt="" width="30" height="24">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
