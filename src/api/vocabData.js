@@ -51,8 +51,8 @@ const createCard = (cardObj) => new Promise((resolve, reject) => {
 // UPDATE
 const updateCard = (cardObj) => new Promise((resolve, reject) => {
   axios
-    .patch(`${dbUrl}/cards/${cardObj.firebaseKey}`, cardObj)
-    .then(() => getVocabCards().then(resolve))
+    .patch(`${dbUrl}/cards/${cardObj.firebaseKey}.json`, cardObj)
+    .then(() => getVocabCards(cardObj).then(resolve))
     .catch(reject);
 });
 
